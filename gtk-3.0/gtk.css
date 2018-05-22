@@ -1,0 +1,214 @@
+@define-color c_back #000;
+@define-color c_front #fff;
+@define-color c_high #ddd;
+@define-color c_mid #888;
+@define-color c_low #222;
+
+* { }
+*:disabled { opacity: 0.7; }
+*:selected { background-color: @c_low; }
+*:hover { color: @c_front; background-color: @c_mid; }
+*:active { color: @c_back; background-color: @c_front; }
+
+window { color: @c_front; background-color: transparent; font-family: "Input Sans Narrow Light", sans; font-size: 17px; }
+/*window { background-color: @c_back; font-family: "Input Sans"; font-size: 17px; font-weight: 300; font-stretch: condensed; }*/
+/*.titlebar { color: @c_back; background-color: @c_front; }*/
+
+label {  }
+label.title {  }
+label.subtitle {  }
+label.dim-label {  }
+label selection {  }
+label link {  }
+label accelerator { color: @c_high; font-style: italic; }
+
+@keyframes spin { to {-gtk-icon-transform: rotate(1turn);} }
+spinner { background: none; opacity: 0; -gtk-icon-source: -gtk-icontheme("process-working-symbolic"); }
+spinner:checked { opacity: 1; animation: spin 1s linear infinite; }
+
+statusbar { opacity: 0.7 }
+
+trough { background-color: @c_low; }
+
+levelbar trough { background-color: transparent; }
+levelbar.vertical trough { min-width: 5px; }
+levelbar.horizontal trough { min-height: 5px; }
+levelbar block {  background-color: @c_low; }
+levelbar block.filled {  background-color: @c_front; }
+levelbar.vertical.discrete block { margin: 4px 0px; }
+levelbar.horizontal.discrete block { margin: 0px 4px; }
+levelbar.discrete block:first-child { margin-left: 0px; margin-top: 0px;}
+levelbar.discrete block:last-child { margin-right: 0px; margin-bottom: 0px;}
+
+progressbar text { font-size: 70%; }
+progressbar progress { background-color: @c_front; }
+progressbar.vertical trough,
+progressbar.vertical progress { min-width: 15px; }
+progressbar.horizontal trough,
+progressbar.horizontal progress { min-height: 15px; }
+
+infobar {  }
+infobar.info {  }
+infobar.warning {  }
+infobar.error {  }
+infobar.question {  }
+
+scrollbar {  }
+scrollbar contents {  }
+scrollbar trough {  }
+scrollbar slider {  }
+scrollbar button {  }
+/* Other style classes that may be added to scrollbars inside GtkScrolledWindow include the positional classes (.left, .right, .top, .bottom) and style classes related to overlay scrolling (.overlay-indicator, .dragging, .hovering). */
+
+image {  }
+
+separator { background-color: @c_low; opacity: 0.5; }
+separator.vertical { min-width: 1px; }
+separator.horizontal { min-height: 1px; }
+
+textview { background-color: @c_low;  }
+textview border {  }
+textview text {  }
+textview text selection { color: @c_back; background-color: @c_front; }
+
+scale {  }
+scale contents {  }
+scale trough {  }
+scale slider {  }
+scale highlight {  }
+scale fill {  }
+scale marks {  }
+scale mark {  }
+scale mark indicator {  }
+scale mark label {  }
+scale value {  }
+
+button { padding: 2px 5px; }
+/*button { color: @c_front; background-color: @c_back; padding: 2px 5px; }*/
+button.text-button {  }
+button.image-button {  }
+button.flat {  }
+button.suggested-action {  }
+button.destructive-action {  }
+button.circular {  }
+button.scale {  }
+button.toggle {  }
+button.link {  }
+button.popup {  }
+button.lock {  }
+button.color {  }
+button.font {  }
+button.file {  }
+button:not(:last-child) { margin-right: 0px; }
+button:not(:first-child) { margin-left: 0px; }
+
+checkbutton {  }
+checkbutton check {  }
+button.check {  }
+
+radiobutton {  }
+radiobutton radio {  }
+button.radio {  }
+
+switch {  }
+switch slider {  }
+
+spinbutton.vertical {  }
+spinbutton.vertical entry {  }
+spinbutton.vertical button {  }
+spinbutton.vertical button.up {  }
+spinbutton.vertical button.down {  }
+spinbutton.horizontal {  }
+spinbutton.horizontal entry {  }
+spinbutton.horizontal button {  }
+spinbutton.horizontal button.up {  }
+spinbutton.horizontal button.down {  }
+
+combobox {  }
+combobox box.linked {  }
+combobox arrow {  }
+combobox cellview {  }
+button.combo {  }
+entry.combo {  }
+combobox window.popup {  }
+
+entry {  }
+entry image {  }
+entry selection {  }
+entry progress {  }
+entry progress.pulse {  }
+entry window.popup {  }
+
+scrolledwindow {  }
+/* GtkScrolledWindow also sets the positional style classes (.left, .right, .top, .bottom) and style classes related to overlay scrolling (.overlay-indicator, .dragging, .hovering) on its scrollbars. */
+junction {  }
+
+overshoot { background-color: transparent; }
+overshoot.top { background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
+overshoot.bottom { background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
+overshoot.left { background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
+overshoot.right { background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
+undershoot.top {  }
+undershoot.bottom {  }
+undershoot.left {  }
+undershoot.right {  }
+
+headerbar {  }
+headerbar entry {  }
+headerbar button {  }
+headerbar separator {  }
+
+searchbar {  }
+
+actionbar {  }
+
+list {  }
+list row {  }
+list row.activatable {  }
+
+flowbox {  }
+flowboxchild {  }
+
+rubberband {  }
+
+stack {  }
+stackswitcher, .stack-switcher {  }
+stackswitcher, .stack-switcher {  }
+stacksidebar.sidebar {  }
+.needs-attention {  }
+
+treeview {  }
+treeview header {  }
+
+iconview {  }
+
+notebook {  }
+notebook header {  }
+tabs {  }
+tabs arrow {  }
+tabs tab {  }
+tabs tab.reorderable-page {  }
+tabs tab.dnd {  }
+notebook stack {  }
+
+frame {  }
+frame border {  }
+frame border.flat {  }
+
+paned {  }
+paned separator {  }
+paned separator.wide {  }
+
+menubar {  }
+menuitem { padding: 2px 4px; }
+
+toolbar {  }
+toolpalette {  }
+
+placessidebar.sidebar {  }
+placessidebar .sidebar-new-bookmark-row {  }
+placessidebar .sidebar-placeholder-row {  }
+placessidebar .has-open-popup {  }
+
+assistant {  }
+printdialog {  }

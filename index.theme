@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=blk
+Comment=blk them
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=blk
+ButtonLayout=:close

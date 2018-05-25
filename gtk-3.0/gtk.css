@@ -5,14 +5,16 @@
 @define-color c_low #222;
 
 * { }
-*:disabled { opacity: 0.7; }
-*:selected { background-color: @c_low; }
-*:hover { color: @c_front; background-color: @c_mid; }
-*:active { color: @c_back; background-color: @c_front; }
+*:disabled { opacity: 0.5; }
+*:selected { background: @c_low; }
+/*
+*:hover { color: @c_front; background: @c_mid; }
+*:active { color: @c_back; background: @c_front; }
+*/
 
-window { color: @c_front; background-color: transparent; font-family: "Input Sans Narrow Light", sans; font-size: 17px; }
-/*window { background-color: @c_back; font-family: "Input Sans"; font-size: 17px; font-weight: 300; font-stretch: condensed; }*/
-/*.titlebar { color: @c_back; background-color: @c_front; }*/
+window { color: @c_front; background: transparent; font-family: "Input Sans Narrow Light", sans; font-size: 17px; }
+/*window { background: @c_back; font-family: "Input Sans"; font-size: 17px; font-weight: 300; font-stretch: condensed; }*/
+/*.titlebar { color: @c_back; background: @c_front; }*/
 
 label {  }
 label.title {  }
@@ -28,20 +30,22 @@ spinner:checked { opacity: 1; animation: spin 1s linear infinite; }
 
 statusbar { opacity: 0.7 }
 
-trough { background-color: @c_low; }
+trough { background: @c_low; }
 
-levelbar trough { background-color: transparent; }
+levelbar trough { background: transparent; }
 levelbar.vertical trough { min-width: 5px; }
 levelbar.horizontal trough { min-height: 5px; }
-levelbar block {  background-color: @c_low; }
-levelbar block.filled {  background-color: @c_front; }
-levelbar.vertical.discrete block { margin: 4px 0px; }
-levelbar.horizontal.discrete block { margin: 0px 4px; }
+levelbar block {  background: @c_low; }
+levelbar block.filled {  background: @c_front; }
+levelbar.vertical block { margin: 4px 0px; }
+levelbar.horizontal block { margin: 0px 4px; }
+/*
 levelbar.discrete block:first-child { margin-left: 0px; margin-top: 0px;}
 levelbar.discrete block:last-child { margin-right: 0px; margin-bottom: 0px;}
+*/
 
 progressbar text { font-size: 70%; }
-progressbar progress { background-color: @c_front; }
+progressbar progress { background: @c_front; }
 progressbar.vertical trough,
 progressbar.vertical progress { min-width: 15px; }
 progressbar.horizontal trough,
@@ -62,29 +66,33 @@ scrollbar button {  }
 
 image {  }
 
-separator { background-color: @c_low; opacity: 0.5; }
+separator { background: @c_low; opacity: 0.5; }
 separator.vertical { min-width: 1px; }
 separator.horizontal { min-height: 1px; }
 
-textview { background-color: @c_low;  }
+textview { background: @c_low;  }
 textview border {  }
 textview text {  }
-textview text selection { color: @c_back; background-color: @c_front; }
+textview text selection { color: @c_back; background: @c_front; }
 
-scale {  }
+scale { min-width: 15px; min-height: 15px; padding: 3px; }
 scale contents {  }
-scale trough {  }
-scale slider {  }
-scale highlight {  }
+scale.vertical trough { padding: 7px 0px; }
+scale.horizontal trough { padding: 0px 7px; }
+scale slider { min-width: 15px; min-height: 15px; background: @c_front; color: @c_front; margin: -6px; border-radius: 7px; }
+scale slider:active { background: @c_high; }
+scale highlight { background: @c_mid; }
+scale.vertical highlight { margin: -7px 0px; }
+scale.horizontal highlight { margin: 0px -7px; }
 scale fill {  }
-scale marks {  }
-scale mark {  }
-scale mark indicator {  }
-scale mark label {  }
-scale value {  }
+scale marks { padding: 5px; }
+scale mark { min-width: 1px; }
+scale mark indicator { min-height: 3px; min-width: 1px; color: @c_mid; }
+scale mark label { font-size: 70%; }
+scale value { font-size: 70%; }
 
 button { padding: 2px 5px; }
-/*button { color: @c_front; background-color: @c_back; padding: 2px 5px; }*/
+/*button { color: @c_front; background: @c_back; padding: 2px 5px; }*/
 button.text-button {  }
 button.image-button {  }
 button.flat {  }
@@ -92,15 +100,20 @@ button.suggested-action {  }
 button.destructive-action {  }
 button.circular {  }
 button.scale {  }
-button.toggle {  }
+button.toggle { /*border-bottom: 2px solid @c_low; padding-bottom: 0px;*/ }
 button.link {  }
 button.popup {  }
 button.lock {  }
 button.color {  }
 button.font {  }
 button.file {  }
+/*
 button:not(:last-child) { margin-right: 0px; }
 button:not(:first-child) { margin-left: 0px; }
+*/
+button:hover { background: @c_low; }
+button:checked { border-bottom: 2px solid @c_front; padding-bottom: 0px; }
+button:active { background: @c_mid; }
 
 checkbutton {  }
 checkbutton check {  }
@@ -143,7 +156,7 @@ scrolledwindow {  }
 /* GtkScrolledWindow also sets the positional style classes (.left, .right, .top, .bottom) and style classes related to overlay scrolling (.overlay-indicator, .dragging, .hovering) on its scrollbars. */
 junction {  }
 
-overshoot { background-color: transparent; }
+overshoot { background: transparent; }
 overshoot.top { background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
 overshoot.bottom { background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
 overshoot.left { background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }

@@ -1,6 +1,6 @@
 @define-color c_back #000;
 @define-color c_front #fff;
-@define-color c_high #ddd;
+@define-color c_high #ccc;
 @define-color c_mid #888;
 @define-color c_low #222;
 
@@ -62,26 +62,26 @@ scrollbar contents {  }
 scrollbar trough {  }
 scrollbar slider {  }
 scrollbar button {  }
+junction {  }
 /* Other style classes that may be added to scrollbars inside GtkScrolledWindow include the positional classes (.left, .right, .top, .bottom) and style classes related to overlay scrolling (.overlay-indicator, .dragging, .hovering). */
 
-image {  }
+image {}
 
 separator { background: @c_low; opacity: 0.5; }
 separator.vertical { min-width: 1px; }
 separator.horizontal { min-height: 1px; }
 
 textview { background: @c_low;  }
-textview border {  }
-textview text {  }
-textview text selection { color: @c_back; background: @c_front; }
+textview border {}
+textview text {}
+selection { color: @c_back; background: @c_front; }
 
 scale { min-width: 15px; min-height: 15px; padding: 3px; }
-scale contents {  }
 scale.vertical trough { padding: 7px 0px; }
 scale.horizontal trough { padding: 0px 7px; }
-scale slider { min-width: 15px; min-height: 15px; background: @c_front; color: @c_front; margin: -6px; border-radius: 7px; }
+scale slider { min-width: 15px; min-height: 15px; background: @c_front; margin: -6px; border-radius: 7px; }
 scale slider:active { background: @c_high; }
-scale highlight { background: @c_mid; }
+scale highlight { background: @c_high; }
 scale.vertical highlight { margin: -7px 0px; }
 scale.horizontal highlight { margin: 0px -7px; }
 scale fill {  }
@@ -90,8 +90,9 @@ scale mark { min-width: 1px; }
 scale mark indicator { min-height: 3px; min-width: 1px; color: @c_mid; }
 scale mark label { font-size: 70%; }
 scale value { font-size: 70%; }
+scale.fine-tune slider { background: @c_back; border: 2px solid @c_front; min-width: 11px; min-height: 11px; }
 
-button { padding: 2px 5px; }
+button { padding: 0px 5px; }
 /*button { color: @c_front; background: @c_back; padding: 2px 5px; }*/
 button.text-button {  }
 button.image-button {  }
@@ -100,7 +101,7 @@ button.suggested-action {  }
 button.destructive-action {  }
 button.circular {  }
 button.scale {  }
-button.toggle { /*border-bottom: 2px solid @c_low; padding-bottom: 0px;*/ }
+button.toggle { /*border-bottom: 2px solid @c_low;*/ padding-bottom: 2px; }
 button.link {  }
 button.popup {  }
 button.lock {  }
@@ -115,16 +116,24 @@ button:hover { background: @c_low; }
 button:checked { border-bottom: 2px solid @c_front; padding-bottom: 0px; }
 button:active { background: @c_mid; }
 
-checkbutton {  }
-checkbutton check {  }
-button.check {  }
+/*
+checkbutton, button.check, radiobutton, button.radio { padding: 0px 5px; }
+checkbutton:hover, radiobutton:hover { background: @c_low; }
+checkbutton:active, radiobutton:active { background: @c_mid; }
+*/
+check, radio, check:selected, radio:selected { min-width: 10px; min-height: 10px; background: @c_low; padding-left: 2px; padding-top: 2px; -gtk-icon-transform: scale(2); }
+checkbutton check, button.check check, radiobutton radio, button.radio radio { margin-right: 6px; }
+radio { border-radius: 100%; }
+check:checked { background: @c_front; color: @c_back; }
+radio:checked { background: @c_front; color: transparent; }
+check:hover,  radio:hover { background: @c_mid; }
+check:hover:checked, radio:hover:checked { background: @c_high; }
+check:active, radio:active { background: @c_high; }
+check:active:checked, radio:active:checked { background: @c_mid; }
 
-radiobutton {  }
-radiobutton radio {  }
-button.radio {  }
-
-switch {  }
-switch slider {  }
+switch { transition-property: all; transition-duration: 0.1s; }
+switch:checked { background: @c_mid; }
+switch slider { background: @c_front; }
 
 spinbutton.vertical {  }
 spinbutton.vertical entry {  }
@@ -137,34 +146,33 @@ spinbutton.horizontal button {  }
 spinbutton.horizontal button.up {  }
 spinbutton.horizontal button.down {  }
 
-combobox {  }
+entry, combobox, button.combo { background: @c_low; padding: 0px 0px; }
 combobox box.linked {  }
-combobox arrow {  }
+combobox arrow { }
 combobox cellview {  }
 button.combo {  }
 entry.combo {  }
 combobox window.popup {  }
 
-entry {  }
 entry image {  }
-entry selection {  }
 entry progress {  }
 entry progress.pulse {  }
 entry window.popup {  }
 
 scrolledwindow {  }
 /* GtkScrolledWindow also sets the positional style classes (.left, .right, .top, .bottom) and style classes related to overlay scrolling (.overlay-indicator, .dragging, .hovering) on its scrollbars. */
-junction {  }
 
-overshoot { background: transparent; }
+overshoot { background: none; }
+/*
 overshoot.top { background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
 overshoot.bottom { background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
 overshoot.left { background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
 overshoot.right { background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, from(rgba(255, 255, 255, 0.1)), to(rgba(255, 255, 255, 0))); }
-undershoot.top {  }
-undershoot.bottom {  }
-undershoot.left {  }
-undershoot.right {  }
+undershoot.top {}
+undershoot.bottom {}
+undershoot.left {}
+undershoot.right {}
+*/
 
 headerbar {  }
 headerbar entry {  }
